@@ -1,28 +1,16 @@
 {
-  "name": "api_flourish",
-  "version": "1.0.0",
-  "description": "Desenvolvimento da api para a solução proposta no Mega Hack.",
-  "main": "index.js",
+  "name": "api-flourish",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MasterBruno/API_Flourish.git"
-  },
-  "keywords": [
-    "API",
-    "Flourish"
-  ],
-  "author": "Team 20",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MasterBruno/API_Flourish/issues"
-  },
-  "homepage": "https://github.com/MasterBruno/API_Flourish#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
     "nodemon": "^2.0.3"
   }
 }
