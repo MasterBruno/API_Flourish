@@ -18,5 +18,5 @@ $ npm start
 Install mongoose
 
 ```bash
-$ npm install mongoose --save
+$ npm install mongoose --save  
 
