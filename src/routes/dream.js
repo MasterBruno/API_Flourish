@@ -1,29 +1,80 @@
 var express = require('express');
+const app = express();  
+
 var router = express.Router();
 
-/* GET Listagem dream. */
+
+/* GET Listagem status_dream. */
+/*
 router.get('/', function(req, res, next) {
-    res.send('Rota dream!')
+    res.send('Rota status_dream!')
 });
-
-/* GET Busca dream por id. */
+*/
+/* GET Busca status_dream por id. */
+/*
 router.get('/:id', function(req, res, next) {
-    res.send('Rota dream!')
+    res.send('Rota status_dream!')
 });
 
-/* POST Cadastro de usuário. */
-router.post('/', function(req, res, next) {
-    res.send('Rota dream!')
+*/
+
+
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+function execSQLQuery(sqlQry, res){
+    const connection = mysql.createConnection({
+        host     : 'localhost',
+        port     : 3306,
+        user     : 'root',
+        password : 'teste123',
+        database : 'SistemaBD'
+    });
+
+    connection.query(sqlQry, function(error, results, fields){
+        if(error) 
+            res.json(error);
+        else
+            res.json(results);
+        connection.end();
+        console.log('executou!');
+    });
+}
+
+
+router.get('/', (req, res) => {
+	execSQLQuery('SELECT * FROM dream', res);
 });
 
-/* PUT Atualiza todos os campos do dream. */
-router.put('/:id', function(req, res, next) {
-    res.send('Rota dream!')
+
+router.get('/:id?', (req, res) =>{
+    let filter = '';
+    if(req.params.id) filter = ' WHERE id_dream=' + parseInt(req.params.id);
+    execSQLQuery('SELECT * FROM dream' + filter, res);
 });
 
-/* PATCH Atualiza os campos passados do dream. */
-router.patch('/:id', function(req, res, next) {
-    res.send('Rota dream!')
+router.delete('/:id', (req, res) =>{
+    execSQLQuery('DELETE FROM dream WHERE id_dream=' + parseInt(req.params.id), res);
 });
 
-module.exports = router;  
+router.post('/', (req, res) =>{
+    const description_dream = req.body.description_status.substring(0,45);
+    const realization_at = req.body.description_status.Date(0,45);
+    const limit_value = req.body.description_status.parseFloat(0,45);
+    const id_status = req.body.description_status.parseInt(0,45);
+    execSQLQuery(`INSERT INTO dream(description_status, realization_at, limit_value, id_status) VALUES('${description_status}', '${realization_at}', '${limit_value}', ''${id_status}'')`, res);
+});
+
+router.patch('/:id', (req, res) =>{
+    const id = parseInt(req.params.id);
+    const description_dream = req.body.description_status.substring(0,45);
+    const realization_at = req.body.description_status.Date(0,45);
+    const limit_value = req.body.description_status.parseFloat(0,45);
+    const id_status = req.body.description_status.parseInt(0,45);
+    execSQLQuery(`UPDATE dream SET description_dream='${description_dream}', realization_at='${realization_at}', limit_value='${limit_value}', id_status='${id_status}' WHERE id_dream=${id}`, res);
+})
+
+module.exports = router; 
