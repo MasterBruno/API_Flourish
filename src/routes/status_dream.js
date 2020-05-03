@@ -44,30 +44,33 @@ function execSQLQuery(sqlQry, res){
     });
 }
 
-
+//Show all status_dream
 router.get('/', (req, res) => {
 	execSQLQuery('SELECT * FROM status_dream', res);
 });
 
-
+//Show one status_dream
 router.get('/:id?', (req, res) =>{
     let filter = '';
     if(req.params.id) filter = ' WHERE id_status=' + parseInt(req.params.id);
     execSQLQuery('SELECT * FROM status_dream' + filter, res);
 });
 
+//Delete one status_dream
 router.delete('/:id', (req, res) =>{
     execSQLQuery('DELETE FROM status_dream WHERE id_status=' + parseInt(req.params.id), res);
 });
 
+//Insert one status_dream
 router.post('/', (req, res) =>{
-    const description_status = req.body.description_status.substring(0,45);
+    const description_status = req.body.description_status;
     execSQLQuery(`INSERT INTO status_dream(description_status) VALUES('${description_status}')`, res);
 });
 
+//Update one status_dream
 router.patch('/:id', (req, res) =>{
     const id = parseInt(req.params.id);
-    const description_status = req.body.description_status.substring(0,45)
+    const description_status = req.body.description_status;
     execSQLQuery(`UPDATE status_dream SET description_status='${description_status}' WHERE id_status=${id}`, res);
 })
 
