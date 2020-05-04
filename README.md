@@ -15,3 +15,8 @@ Start the server:
 $ npm start
 ```
 
+Install mongoose
+
+```bash
+$ npm install mongoose --save  
+
