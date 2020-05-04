@@ -4,8 +4,11 @@ const dbConfig = require('./config/database');
 const User = require('../models/User');
 const Role = require('../models/Role');
 const StatusDream = require('../models/StatusDream');
+const Dream = require('../models/Dream');
+const Post = require('../models/Post');
+const Comment = require('../models/Comment');
 
-const models = [User, Role, StatusDream];
+const models = [User, Role, StatusDream, Dream, Post, Comment];
 
 class Database {
   constructor() {
