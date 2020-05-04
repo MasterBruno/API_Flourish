@@ -1,15 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var PostController = require('../controllers/PostController');
 
 /* GET Listagem posts. */
-router.get('/', function(req, res, next) {
-    res.send('Rota posts!')
-});
+router.get('/', PostController.index);
 
 /* GET Busca posts por id. */
-router.get('/:id', function(req, res, next) {
-    res.send('Rota posts!')
-});
+router.get('/:id', PostController.getById);
 
 /* POST Cadastro de posts. */
 router.post('/', function(req, res, next) {

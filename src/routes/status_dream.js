@@ -1,14 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var StatusDreamController = require('../controllers/StatusDreamController');
 
 /* GET Listagem status_dream. */
-router.get('/', function(req, res, next) {
-    res.send('Rota status_dream!')
-});
+router.get('/', StatusDreamController.index);
 
 /* GET Busca status_dream por id. */
-router.get('/:id', function(req, res, next) {
-    res.send('Rota status_dream!')
-});
+router.get('/:id', StatusDreamController.getById);
 
 module.exports = router;  

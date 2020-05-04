@@ -1,29 +1,20 @@
 var express = require('express');
+var UserController = require('../controllers/UserController');
 var router = express.Router();
 
 /* GET Listagem usuários. */
-router.get('/', function(req, res, next) {
-    res.send('Rota Usuários!')
-});
+router.get('/', UserController.index);
 
 /* GET Busca usuário por id. */
-router.get('/:id', function(req, res, next) {
-    res.send('Rota Usuários!')
-});
+router.get('/:id', UserController.getById);
 
 /* POST Cadastro de usuário. */
-router.post('/', function(req, res, next) {
-    res.send('Rota Usuários!')
-});
+router.post('/', UserController.store);
 
 /* PUT Atualiza todos os campos do usuário. */
-router.put('/:id', function(req, res, next) {
-    res.send('Rota Usuários!')
-});
+router.put('/:id', UserController.update);
 
 /* PATCH Atualiza os campos passados do usuário. */
-router.patch('/:id', function(req, res, next) {
-    res.send('Rota Usuários!')
-});
+router.patch('/:id', UserController.update);
 
 module.exports = router;  

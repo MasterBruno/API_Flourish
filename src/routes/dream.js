@@ -1,15 +1,12 @@
 var express = require('express');
 var router = express.Router();
+var DreamController = require('../controllers/DreamController');
 
 /* GET Listagem dream. */
-router.get('/', function(req, res, next) {
-    res.send('Rota dream!')
-});
+router.get('/', DreamController.index);
 
 /* GET Busca dream por id. */
-router.get('/:id', function(req, res, next) {
-    res.send('Rota dream!')
-});
+router.get('/:id', DreamController.getById);
 
 /* POST Cadastro de usuário. */
 router.post('/', function(req, res, next) {

@@ -2,21 +2,29 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('status_dream', {
-      id_role: {
+    return queryInterface.createTable('posts', {
+      id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      description_role: {
+      description_post: {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      created_at: {
+        type: Sequelize.DATE,
+        defaultValue: new Date(),
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        defaultValue: new Date(),
+      }
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('status_dream');
+    return queryInterface.dropTable('posts');
   }
 };

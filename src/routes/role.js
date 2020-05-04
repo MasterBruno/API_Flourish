@@ -1,15 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var RoleController = require('../controllers/RoleController');
 
 /* GET Listagem role. */
-router.get('/', function(req, res, next) {
-    res.send('Rota role!')
-});
+router.get('/', RoleController.index);
 
 /* GET Busca role por id. */
-router.get('/:id', function(req, res, next) {
-    res.send('Rota role!')
-});
-
+router.get('/:id', RoleController.getById);
 
 module.exports = router;  
