@@ -17,4 +17,7 @@ router.put('/:id', UserController.update);
 /* PATCH Atualiza os campos passados do usuário. */
 router.patch('/:id', UserController.update);
 
+/* DELETE Apaga o usuário de acordo com o Id. */
+router.delete('/:id', UserController.destroy);
+
 module.exports = router;  

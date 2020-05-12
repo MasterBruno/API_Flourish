@@ -9,18 +9,15 @@ router.get('/', CommentController.index);
 router.get('/:id', CommentController.getById);
 
 /* POST Cadastro de comments. */
-router.post('/', function(req, res, next) {
-    res.send('Rota comments!')
-});
+router.post('/', CommentController.store);
 
 /* PUT Atualiza todos os campos do comments. */
-router.put('/:id', function(req, res, next) {
-    res.send('Rota comments!')
-});
+router.put('/:id', CommentController.update);
 
 /* PATCH Atualiza os campos passados do comments. */
-router.patch('/:id', function(req, res, next) {
-    res.send('Rota comments!')
-});
+router.patch('/:id', CommentController.update);
+
+/* DELETE Apaga o comments de acordo com o id. */
+router.delete('/:id', CommentController.destroy);
 
 module.exports = router;  

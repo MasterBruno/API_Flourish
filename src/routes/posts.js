@@ -9,18 +9,15 @@ router.get('/', PostController.index);
 router.get('/:id', PostController.getById);
 
 /* POST Cadastro de posts. */
-router.post('/', function(req, res, next) {
-    res.send('Rota posts!')
-});
+router.post('/', PostController.store);
 
 /* PUT Atualiza todos os campos do posts. */
-router.put('/:id', function(req, res, next) {
-    res.send('Rota posts!')
-});
+router.put('/:id', PostController.update);
 
 /* PATCH Atualiza os campos passados do posts. */
-router.patch('/:id', function(req, res, next) {
-    res.send('Rota posts!')
-});
+router.patch('/:id', PostController.update);
+
+/* DELETE Apaga o post de acordo com o Id. */
+router.delete('/:id', PostController.destroy);
 
 module.exports = router;  

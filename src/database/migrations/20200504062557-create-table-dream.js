@@ -21,8 +21,9 @@ module.exports = {
         type: Sequelize.FLOAT,
         allowNull: false,
       },
-      id_status:{
+      status_dream_id:{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: {
             tableName: 'status_dreams',

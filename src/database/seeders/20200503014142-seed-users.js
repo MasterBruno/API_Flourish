@@ -9,7 +9,7 @@ module.exports = {
         email: 'usuario@email.com',
         password: '12345678',
         birth_date: new Date(),
-        id_role: 1,
+        role_id: 1,
       },
     ], {});
   },

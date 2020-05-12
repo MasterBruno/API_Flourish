@@ -13,6 +13,26 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      user_id:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'users',
+          },
+          key: 'id'
+        },
+      },
+      dream_id:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'dreams',
+          },
+          key: 'id'
+        },
+      },
       created_at: {
         type: Sequelize.DATE,
         defaultValue: new Date(),

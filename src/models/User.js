@@ -8,24 +8,23 @@ class User extends Model {
       email: DataTypes.STRING,
       password: DataTypes.STRING,
       birth_date: DataTypes.DATE,
-      id_role: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'Role',
-          key: 'id',
-        }
-      }
+      role_id: DataTypes.INTEGER,
     },{
       sequelize,
       tableName: 'users',
     })
-
     return this
   }
+}
 
-  getFullname() {
-    return [this.firstname, this.lastname].join(' ');
-  }
+User.getFullname = function() {
+  return [this.firstname, this.lastname].join(' ');
+}
+
+User.associate = function(models) {
+  User.belongsTo(models.Role, {foreignKey: 'role_id', as: 'role'})
+  User.hasMany(models.Post, {as: 'posts'})
+  User.hasMany(models.Comment, {as: 'comments'})
 }
 
 module.exports = User;

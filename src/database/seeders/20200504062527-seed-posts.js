@@ -5,9 +5,13 @@ module.exports = {
     return queryInterface.bulkInsert('posts', [
       {
         description_post: 'Viajar para a Europa',
+        user_id: 1,
+        dream_id: 1,
       },
       {
         description_post: 'Construir minha mansão',
+        user_id: 1,
+        dream_id: 2,
       }
     ], {});
   },

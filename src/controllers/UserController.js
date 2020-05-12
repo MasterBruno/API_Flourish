@@ -2,9 +2,12 @@ const User = require('../models/User');
 
 module.exports = {
   async index(req, res) {
-    User.findAll().then(users => {
-      return res.json(users);
-    });
+    User.findAll({
+        include: {association: 'role'}
+      }).then(users => {
+        return res.json(users);
+      }
+    );
   },
 
   async getById(req, res){
@@ -15,11 +18,11 @@ module.exports = {
   
   async store(req, res) {
     const { 
-      first_name, last_name, email, password, birth_date, id_role
+      first_name, last_name, email, password, birth_date, role_id
     } = req.body;
 
     User.create(
-      { first_name, last_name, email, password, birth_date, id_role}
+      { first_name, last_name, email, password, birth_date, role_id}
     ).then(user => {
       return res.json(user);
     });
