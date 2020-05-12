@@ -23,6 +23,7 @@ module.exports = {
       },
       status_dream_id:{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: {
             tableName: 'status_dreams',

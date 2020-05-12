@@ -15,6 +15,7 @@ module.exports = {
       },
       post_id:{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: {
             tableName: 'posts',
@@ -24,6 +25,7 @@ module.exports = {
       },
       user_id:{
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: {
             tableName: 'users',
