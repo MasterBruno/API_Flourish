@@ -5,13 +5,13 @@ module.exports = {
     return queryInterface.bulkInsert('comments', [
       {
         text_comments: 'Guarde 100 reais por mês!!!',
-        id_post: 1,
-        id_user: 1
+        post_id: 1,
+        user_id: 1
       },
       {
         text_comments: 'Guarde 100 reais por mês!!!',
-        id_post: 2,
-        id_user: 1
+        post_id: 2,
+        user_id: 1
       }
     ], {});
   },

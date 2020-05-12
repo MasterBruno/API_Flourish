@@ -7,13 +7,13 @@ module.exports = {
         description_dream: 'Viajar',
         realization_at: new Date(),
         limit_value: 230.00,
-        id_status: 1,
+        status_dream_id: 1,
       },
       {
         description_dream: 'Contruir',
         realization_at: new Date(),
         limit_value: 830.00,
-        id_status: 2,
+        status_dream_id: 2,
       }
     ], {});
   },

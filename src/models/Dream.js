@@ -6,21 +6,19 @@ class Dream extends Model {
       description_dream: DataTypes.STRING,
       realization_at: DataTypes.DATE,
       limit_value: DataTypes.FLOAT,
-      id_status: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'StatusDream',
-          key: 'id',
-        }
-      }
+      status_dream_id: DataTypes.INTEGER,
     },{
       sequelize,
       timestamps: false,
       tableName: 'dreams',
     })
-
     return this
   }
+}
+
+Dream.associate = function(models) {
+  Dream.belongsTo(models.StatusDream, {foreignKey: 'status_dream_id', as: 'status'})
+  Dream.hasMany(models.Post, {as: 'posts'})
 }
 
 module.exports = Dream;
