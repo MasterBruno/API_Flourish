@@ -9,18 +9,15 @@ router.get('/', DreamController.index);
 router.get('/:id', DreamController.getById);
 
 /* POST Cadastro de usuário. */
-router.post('/', function(req, res, next) {
-    res.send('Rota dream!')
-});
+router.post('/', DreamController.store);
 
 /* PUT Atualiza todos os campos do dream. */
-router.put('/:id', function(req, res, next) {
-    res.send('Rota dream!')
-});
+router.put('/:id', DreamController.update);
 
 /* PATCH Atualiza os campos passados do dream. */
-router.patch('/:id', function(req, res, next) {
-    res.send('Rota dream!')
-});
+router.patch('/:id', DreamController.update);
+
+/* Delete Apaga o dream de acordo com o Id. */
+router.delete('/:id', DreamController.destroy);
 
 module.exports = router;  
