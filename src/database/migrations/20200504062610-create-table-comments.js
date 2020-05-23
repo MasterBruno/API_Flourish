@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -7,44 +7,44 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
+        allowNull: false
       },
       text_comments: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
-      post_id:{
+      post_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: {
-            tableName: 'posts',
+            tableName: 'posts'
           },
           key: 'id'
-        },
+        }
       },
-      user_id:{
+      user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: {
-            tableName: 'users',
+            tableName: 'users'
           },
           key: 'id'
-        },
+        }
       },
       created_at: {
         type: Sequelize.DATE,
-        defaultValue: new Date(),
+        defaultValue: new Date()
       },
       updated_at: {
         type: Sequelize.DATE,
-        defaultValue: new Date(),
+        defaultValue: new Date()
       }
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('comments');
+    return queryInterface.dropTable('comments')
   }
-};
+}

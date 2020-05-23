@@ -1,15 +1,15 @@
-const Role = require('../models/Role');
+const Role = require('../models/Role')
 
 module.exports = {
-  async index(req, res) {
+  async index (req, res) {
     Role.findAll().then(roles => {
-      return res.json(roles);
-    });
+      return res.json(roles)
+    })
   },
 
-  async getById(req, res){
+  async getById (req, res) {
     Role.findByPk(req.params.id).then(role => {
-      return res.json(role);
-    });
+      return res.json(role)
+    })
   }
 }
