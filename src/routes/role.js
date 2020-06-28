@@ -6,6 +6,6 @@ var RoleController = require('../controllers/RoleController')
 router.get('/', RoleController.index)
 
 /* GET Busca role por id. */
-router.get('/:id', RoleController.getById)
+router.get('/:id', RoleController.show)
 
 module.exports = router

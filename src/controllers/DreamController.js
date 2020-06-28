@@ -7,7 +7,7 @@ module.exports = {
     })
   },
 
-  async getById (req, res) {
+  async show (req, res) {
     Dream.findByPk(req.params.id).then(dreams => {
       return res.json(dreams)
     })

@@ -29,7 +29,8 @@ module.exports = {
             tableName: 'status_dreams'
           },
           key: 'id'
-        }
+        },
+        onUpdate: 'cascade'
       }
     })
   },

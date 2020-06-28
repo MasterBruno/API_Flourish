@@ -10,7 +10,7 @@ module.exports = {
     )
   },
 
-  async getById (req, res) {
+  async show (req, res) {
     User.findByPk(req.params.id).then(users => {
       return res.json(users)
     })

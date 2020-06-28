@@ -7,7 +7,7 @@ module.exports = {
     })
   },
 
-  async getById (req, res) {
+  async show (req, res) {
     Comment.findByPk(req.params.id).then(comment => {
       return res.json(comment)
     })
@@ -44,5 +44,18 @@ module.exports = {
         res.json({ message: 'Sucesso' })
       }).catch(next)
     })
+  },
+
+  //  Metódos personalizados
+  async getByIdPost(req, res, next) {
+    if(!req.params.id) return res.json({ success: false, message: 'Id nulo ou inválido' })
+
+    Comment.findAndCountAll({
+      where:{
+        post_id: req.params.id
+      }
+    })
+    .then(comments => {return res.json(comments)})
+    .catch(error => { return res.json({ success: false, erro: error.message })})
   }
 }

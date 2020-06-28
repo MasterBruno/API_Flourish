@@ -17,7 +17,7 @@ class Dream extends Model {
 }
 
 Dream.associate = function (models) {
-  Dream.belongsTo(models.StatusDream, { foreignKey: 'status_dream_id', as: 'status' })
+  Dream.belongsTo(models.StatusDream, { foreignKey: 'status_dream_id', as: 'status', onUpdate: 'cascade' })
   Dream.hasMany(models.Post, { as: 'posts' })
 }
 

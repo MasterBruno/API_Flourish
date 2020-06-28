@@ -7,7 +7,7 @@ module.exports = {
     })
   },
 
-  async getById (req, res) {
+  async show (req, res) {
     Role.findByPk(req.params.id).then(role => {
       return res.json(role)
     })

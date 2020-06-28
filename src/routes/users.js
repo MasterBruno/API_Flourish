@@ -6,7 +6,7 @@ var router = express.Router()
 router.get('/', UserController.index)
 
 /* GET Busca usuário por id. */
-router.get('/:id', UserController.getById)
+router.get('/:id', UserController.show)
 
 /* POST Cadastro de usuário. */
 router.post('/', UserController.store)

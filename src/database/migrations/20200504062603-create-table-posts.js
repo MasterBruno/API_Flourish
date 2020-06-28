@@ -21,7 +21,9 @@ module.exports = {
             tableName: 'users'
           },
           key: 'id'
-        }
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       dream_id: {
         type: Sequelize.INTEGER,
@@ -31,7 +33,8 @@ module.exports = {
             tableName: 'dreams'
           },
           key: 'id'
-        }
+        },
+        onUpdate: 'cascade'
       },
       created_at: {
         type: Sequelize.DATE,

@@ -15,8 +15,8 @@ class Comment extends Model {
 }
 
 Comment.associate = function (models) {
-  Comment.belongsTo(models.Post, { foreignKey: 'post_id', as: 'post' })
-  Comment.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' })
+  Comment.belongsTo(models.Post, { foreignKey: 'post_id', as: 'post', onDelete: 'cascade', onUpdate: 'cascade'})
+  Comment.belongsTo(models.User, { foreignKey: 'user_id', as: 'user', onUpdate: 'cascade' })
 }
 
 module.exports = Comment

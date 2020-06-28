@@ -21,7 +21,9 @@ module.exports = {
             tableName: 'posts'
           },
           key: 'id'
-        }
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       user_id: {
         type: Sequelize.INTEGER,
@@ -31,7 +33,9 @@ module.exports = {
             tableName: 'users'
           },
           key: 'id'
-        }
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       created_at: {
         type: Sequelize.DATE,

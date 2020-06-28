@@ -6,6 +6,6 @@ var StatusDreamController = require('../controllers/StatusDreamController')
 router.get('/', StatusDreamController.index)
 
 /* GET Busca status_dream por id. */
-router.get('/:id', StatusDreamController.getById)
+router.get('/:id', StatusDreamController.show)
 
 module.exports = router

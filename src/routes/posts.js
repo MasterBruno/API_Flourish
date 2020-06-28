@@ -6,7 +6,7 @@ var PostController = require('../controllers/PostController')
 router.get('/', PostController.index)
 
 /* GET Busca posts por id. */
-router.get('/:id', PostController.getById)
+router.get('/:id', PostController.show)
 
 /* POST Cadastro de posts. */
 router.post('/', PostController.store)

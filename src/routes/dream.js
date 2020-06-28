@@ -6,7 +6,7 @@ var DreamController = require('../controllers/DreamController')
 router.get('/', DreamController.index)
 
 /* GET Busca dream por id. */
-router.get('/:id', DreamController.getById)
+router.get('/:id', DreamController.show)
 
 /* POST Cadastro de usuário. */
 router.post('/', DreamController.store)

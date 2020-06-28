@@ -22,7 +22,7 @@ User.getFullname = function () {
 }
 
 User.associate = function (models) {
-  User.belongsTo(models.Role, { foreignKey: 'role_id', as: 'role' })
+  User.belongsTo(models.Role, { foreignKey: 'role_id', as: 'role', onUpdate: 'cascade' })
   User.hasMany(models.Post, { as: 'posts' })
   User.hasMany(models.Comment, { as: 'comments' })
 }

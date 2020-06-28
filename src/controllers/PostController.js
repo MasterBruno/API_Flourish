@@ -7,7 +7,7 @@ module.exports = {
     })
   },
 
-  async getById (req, res) {
+  async show (req, res) {
     Post.findByPk(req.params.id, {
       include: { association: 'comments' }
     }).then(post => {

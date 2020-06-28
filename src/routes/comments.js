@@ -6,7 +6,10 @@ var CommentController = require('../controllers/CommentController')
 router.get('/', CommentController.index)
 
 /* GET Busca comments por id. */
-router.get('/:id', CommentController.getById)
+router.get('/:id', CommentController.show)
+
+/* GET Busca comments por id do Post. */
+router.get('/post/:id', CommentController.getByIdPost)
 
 /* POST Cadastro de comments. */
 router.post('/', CommentController.store)
