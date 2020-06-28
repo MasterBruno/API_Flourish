@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -7,50 +7,50 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
+        allowNull: false
       },
       first_name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       last_name: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       password: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       birth_date: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
       },
-      role_id:{
+      role_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: {
-            tableName: 'roles',
+            tableName: 'roles'
           },
           key: 'id'
-        },
+        }
       },
       created_at: {
         type: Sequelize.DATE,
-        defaultValue: new Date(),
+        defaultValue: new Date()
       },
       updated_at: {
         type: Sequelize.DATE,
-        defaultValue: new Date(),
+        defaultValue: new Date()
       }
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('users');
+    return queryInterface.dropTable('users')
   }
-};
+}

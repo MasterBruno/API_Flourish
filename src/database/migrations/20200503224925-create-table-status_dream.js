@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -7,18 +7,18 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER
       },
       description_status: {
         allowNull: false,
-        type: Sequelize.STRING,
+        type: Sequelize.STRING
       }
-    },{
-      timestamps : false
+    }, {
+      timestamps: false
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('status_dreams');
+    return queryInterface.dropTable('status_dreams')
   }
-};
+}
