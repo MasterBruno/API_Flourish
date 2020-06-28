@@ -3,8 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon server.js",
-    "lint": "eslint 'src/**'"
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "lint": "eslint 'src/**'",
+    "migrateAll": "sequelize db:migrate",
+    "seedAll": "sequelize db:seed:all",
+    "revertAll": "sequelize db:migrate:undo:all"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
