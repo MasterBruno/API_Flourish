@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -7,34 +7,35 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
+        allowNull: false
       },
       description_dream: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
       realization_at: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: false
       },
       limit_value: {
         type: Sequelize.FLOAT,
-        allowNull: false,
+        allowNull: false
       },
-      status_dream_id:{
+      status_dream_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: {
-            tableName: 'status_dreams',
+            tableName: 'status_dreams'
           },
           key: 'id'
         },
+        onUpdate: 'cascade'
       }
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('dreams');
+    return queryInterface.dropTable('dreams')
   }
-};
+}

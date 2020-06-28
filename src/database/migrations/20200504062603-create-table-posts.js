@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -7,44 +7,47 @@ module.exports = {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false,
+        allowNull: false
       },
       description_post: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
-      user_id:{
+      user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: {
-            tableName: 'users',
+            tableName: 'users'
           },
           key: 'id'
         },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
-      dream_id:{
+      dream_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
           model: {
-            tableName: 'dreams',
+            tableName: 'dreams'
           },
           key: 'id'
         },
+        onUpdate: 'cascade'
       },
       created_at: {
         type: Sequelize.DATE,
-        defaultValue: new Date(),
+        defaultValue: new Date()
       },
       updated_at: {
         type: Sequelize.DATE,
-        defaultValue: new Date(),
+        defaultValue: new Date()
       }
     })
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('posts');
+    return queryInterface.dropTable('posts')
   }
-};
+}
